@@ -1,43 +1,184 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#7c4d9f"><title>Kat's Home Base</title><style>
-:root{--p:#7c4d9f;--bg:#f7f2fa;--ink:#281f2d;--muted:#746b78;--line:#e5dbea}*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,#6f3e91,#a06bc0);color:white;padding:20px 17px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:24px}header p{margin:4px 0 0}nav{display:flex;gap:7px;overflow:auto;padding:9px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:76px;z-index:4}nav button{border:0;background:#f0e8f4;color:#57346d;border-radius:20px;padding:9px 13px;white-space:nowrap;font-weight:700}nav button.active{background:var(--p);color:#fff}main{max-width:900px;margin:auto;padding:15px}.view{display:none}.view.active{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 2px 9px #4a275a10;margin-bottom:13px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:11px}h2{margin:5px 0 13px}.muted{color:var(--muted);font-size:14px}.big{font-size:25px;font-weight:800;color:var(--p)}button.primary{background:var(--p);color:white;border:0;border-radius:12px;padding:11px 14px;font-weight:750}.course{cursor:pointer}.course h3{margin:0 0 5px}.tag,.badge{font-size:11px;font-weight:800}.badge{display:inline-block;background:#eee4f3;color:#633a79;border-radius:20px;padding:4px 8px}.studentnote{background:#faf6fc;border-left:4px solid var(--p);padding:12px;border-radius:8px;margin:10px 0}.back{border:0;background:transparent;color:var(--p);font-weight:800;padding:0;margin-bottom:12px}.unit{border:1px solid var(--line);border-radius:14px;padding:13px;margin:9px 0}.row{display:flex;justify-content:space-between;gap:10px}.focus{margin-top:10px;padding:9px;background:#f8f4fa;border-radius:10px;font-size:13px}.adult{border:2px dashed #b38ac5;background:#fcf9fd}input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;font:inherit}.form{display:grid;gap:9px}.task{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.task input{width:auto}.done{text-decoration:line-through;color:#999}footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}@media(max-width:500px){main{padding:12px}.grid{grid-template-columns:1fr 1fr}}</style></head><body>
-<noscript>
-  <div style="padding:24px;font-family:Arial,sans-serif">
-    <h2>Kat's Home Base</h2>
-    <p>This app needs JavaScript enabled in your browser.</p>
-  </div>
-</noscript>
-<div id="app-error" style="display:none;padding:24px;font-family:Arial,sans-serif">
-  <h2>Kat's Home Base</h2>
-  <p>The app had trouble loading. Please refresh this page.</p>
-</div>
-<script>
-window.addEventListener('error', function () {
-  var e = document.getElementById('app-error');
-  if (e) e.style.display = 'block';
-});
-</script>
-
-<header><h1>🏠 Kat's Home Base</h1><p>Your family • homeschool • business command center</p></header>
-<nav><button data-v="home" class="active">🏠 Home</button><button data-v="school">📚 Presley</button><button data-v="tasks">✅ Tasks</button><button data-v="family">👨‍👩‍👧‍👦 Family</button><button data-v="business">🧹 Business</button></nav>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7c4d9f">
+<title>Kat's Home Base</title>
+<style>
+:root{--p:#7c4d9f;--p2:#a06bc0;--bg:#f7f2fa;--ink:#281f2d;--muted:#746b78;--line:#e5dbea;--ok:#4d8060}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#6f3e91,#a06bc0);color:#fff;padding:18px 15px;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:24px}header p{margin:3px 0 0;font-size:13px;opacity:.92}
+nav{display:flex;gap:7px;overflow:auto;padding:9px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:74px;z-index:9}
+nav button{border:0;background:#f0e8f4;color:#57346d;border-radius:20px;padding:9px 12px;white-space:nowrap;font-weight:750}
+nav button.active{background:var(--p);color:#fff}main{max-width:980px;margin:auto;padding:14px}.view{display:none}.view.active{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 2px 9px #4a275a10;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}h2{margin:5px 0 12px}h3{margin:2px 0 7px}
+.muted{color:var(--muted);font-size:13px}.big{font-size:25px;font-weight:850;color:var(--p)}
+.primary{background:var(--p);color:#fff;border:0;border-radius:12px;padding:11px 14px;font-weight:800}
+.secondary{background:#f0e8f4;color:#57346d;border:0;border-radius:12px;padding:10px 12px;font-weight:750}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.badge{display:inline-block;background:#eee4f3;color:#633a79;border-radius:20px;padding:4px 8px;font-size:11px;font-weight:800}
+.studentnote{background:#faf6fc;border-left:4px solid var(--p);padding:12px;border-radius:8px;margin:10px 0}
+.course{cursor:pointer}.course:active{transform:scale(.99)}.unit{border:1px solid var(--line);border-radius:14px;padding:13px;margin:9px 0;background:#fff}
+.unit button{margin-top:8px}.focus{margin-top:9px;padding:9px;background:#f8f4fa;border-radius:10px;font-size:13px}
+.check{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}.check input{width:auto;margin-top:3px}
+.form{display:grid;gap:9px}input,textarea,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;font:inherit;background:#fff}
+textarea{min-height:90px;resize:vertical}.task{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}.task input{width:auto}.done{text-decoration:line-through;color:#999}
+.small{font-size:12px}.danger{color:#a44}.pillrow{display:flex;gap:6px;flex-wrap:wrap}.tile{min-height:85px}.note{background:#fff8e9;border:1px solid #ead9aa;padding:11px;border-radius:12px}
+.modalback{border:0;background:transparent;color:var(--p);font-weight:800;padding:0;margin-bottom:10px}.linkbtn{display:block;text-decoration:none}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+@media(max-width:500px){main{padding:11px}.grid{grid-template-columns:1fr 1fr}.card{padding:13px}}
+</style></head><body>
+<header><h1>🏠 Kat's Home Base</h1><p>Family • homeschool • wellness • home • garden • business</p></header>
+<nav id="nav">
+<button data-v="home" class="active">🏠 Home</button><button data-v="school">📚 Presley</button><button data-v="wellness">💪 Wellness</button>
+<button data-v="health">🩺 Health</button><button data-v="food">🥕 Food</button><button data-v="garden">🌱 Garden</button>
+<button data-v="tasks">✅ Tasks</button><button data-v="family">🏠 Family</button><button data-v="business">🧹 Business</button><button data-v="money">💰 Money</button><button data-v="lists">📋 Lists</button>
+</nav>
 <main>
-<section id="home" class="view active"><h2>Today</h2><div class="grid"><div class="card"><div class="muted">Open tasks</div><div class="big" id="count">0</div></div><div class="card"><div class="muted">School year</div><div class="big">2026–27</div></div><div class="card"><div class="muted">Presley courses</div><div class="big">9</div></div></div><div class="card"><h3>Quick add</h3><div class="form"><input id="q" placeholder="What needs to get done?"><button class="primary" onclick="add()">Add task</button></div></div><div class="card"><h3>Today's tasks</h3><div id="today"></div></div></section>
-<section id="school" class="view"><div id="schoolHome"><h2>📚 Presley's Homeschool</h2><div class="studentnote"><b>2026–2027 • 11th Grade</b><br><span class="muted">Start: October 1, 2026 • 10-unit courses</span></div><div class="grid"><div class="card"><b>Core Focus Days</b><p class="muted">Every 2 weeks: 4 focus days each for Math, Science, English & Social Studies.</p></div><div class="card"><b>Light Focus Days</b><p class="muted">Every 2 weeks: 2 focus days each for Art, Music, PE, Biblical Studies & Career/Welding.</p></div><div class="card"><b>Records</b><p class="muted">Unit checks, field trips, reading, projects and progress.</p></div><div class="card"><b>Career Goal</b><p class="muted">CSM/welding exploration targeted for January 2027.</p></div></div><h3>My Courses</h3><div class="grid" id="courses"></div><div class="card adult"><h3>👩‍🏫 Parent / Teacher Package</h3><p class="muted">Adult-only planning: course maps, weekly tracking, unit checks, field-trip records, portfolio notes and progress reviews.</p><button class="primary" onclick="adult()">Open adult package</button></div></div><div id="detail" style="display:none"></div></section>
-<section id="tasks" class="view"><h2>✅ Tasks</h2><div class="card"><div class="form"><input id="ti" placeholder="Add a task"><select id="area"><option>Home</option><option>School</option><option>Family</option><option>Business</option></select><button class="primary" onclick="add('ti')">Add task</button></div></div><div class="card" id="all"></div></section>
-<section id="family" class="view"><h2>👨‍👩‍👧‍👦 Family</h2><div class="grid"><div class="card"><h3>Chores</h3><p class="muted">Kid-specific chore lists.</p></div><div class="card"><h3>Appointments</h3><p class="muted">Important dates and reminders.</p></div><div class="card"><h3>House</h3><p class="muted">Repairs, maintenance and errands.</p></div></div></section>
-<section id="business" class="view"><h2>🧹 Kats Crystal Cleanings</h2><div class="grid"><div class="card"><h3>Clients</h3><p class="muted">Client list — next build.</p></div><div class="card"><h3>Jobs</h3><p class="muted">Upcoming cleaning jobs.</p></div><div class="card"><h3>Quotes & Invoices</h3><p class="muted">Pricing and billing.</p></div><div class="card"><h3>Money</h3><p class="muted">Income, expenses and mileage.</p></div></div></section>
-</main><footer>Kat's Home Base • Version 0.2</footer>
+<section id="home" class="view active">
+<h2>Today</h2>
+<div class="grid">
+<div class="card tile"><div class="muted">Open tasks</div><div class="big" id="count">0</div></div>
+<div class="card tile"><div class="muted">Presley courses</div><div class="big">9</div></div>
+<div class="card tile"><div class="muted">School year</div><div class="big">2026–27</div></div>
+<div class="card tile"><div class="muted">Wellness</div><div class="big" id="wellnessStatus">—</div></div>
+</div>
+<div class="card"><h3>⚡ Quick add</h3><div class="form"><input id="q" placeholder="What needs to get done?"><button class="primary" onclick="addTask('q','Home')">Add task</button></div></div>
+<div class="card"><h3>Today's tasks</h3><div id="today"></div></div>
+<div class="grid">
+<div class="card"><h3>📚 School</h3><p class="muted">Open Presley's courses, unit maps, focus-day rhythm and field-trip connections.</p><button class="secondary" onclick="show('school')">Open school</button></div>
+<div class="card"><h3>💪 Wellness</h3><p class="muted">Quick workout, sleep, food and wellness tracking.</p><button class="secondary" onclick="show('wellness')">Open wellness</button></div>
+<div class="card"><h3>🌱 Garden</h3><p class="muted">Planting ideas, garden jobs, harvests and notes.</p><button class="secondary" onclick="show('garden')">Open garden</button></div>
+</div>
+</section>
+
+<section id="school" class="view">
+<div id="schoolHome">
+<h2>📚 Presley's Homeschool</h2>
+<div class="studentnote"><b>2026–2027 • 11th Grade</b><br><span class="muted">Start: October 1, 2026 • 10 finalized courses • digital-first/minimal printing</span></div>
+<div class="grid">
+<div class="card"><b>Core Focus Days</b><p class="muted">English, Chemistry, Social Studies & Math: 4 focus days per two-week period.</p></div>
+<div class="card"><b>Light Focus Days</b><p class="muted">Art, Music, PE, Biblical Studies & Career/Welding: 2 focus days per two-week period.</p></div>
+<div class="card"><b>Field Trips</b><p class="muted">Academic connections are tracked by course and unit.</p><button class="secondary" onclick="openSchool('trips')">Field-trip reference</button></div>
+<div class="card"><b>Adult Package</b><p class="muted">Planning, checks, portfolio evidence and progress notes.</p><button class="secondary" onclick="openSchool('adult')">Open adult package</button></div>
+</div>
+<h3>My Courses</h3><div class="grid" id="courses"></div>
+</div><div id="schoolDetail" style="display:none"></div>
+</section>
+
+<section id="wellness" class="view">
+<h2>💪 Wellness</h2>
+<div class="card"><div class="row"><div><b>Quick daily check-in</b><div class="muted">Saved only on this device.</div></div><span class="badge">PRIVATE</span></div>
+<div class="form" style="margin-top:10px"><label>Sleep hours<input id="sleep" type="number" step="0.1" min="0" max="24"></label>
+<label>Workout / movement<input id="workout" placeholder="Example: 25 min walk"></label>
+<label>Energy (1–10)<input id="energy" type="number" min="1" max="10"></label>
+<label>Notes<textarea id="wellnote" placeholder="Optional: how you felt, what helped, anything to remember"></textarea></label>
+<button class="primary" onclick="saveWellness()">Save today's check-in</button></div></div>
+<div class="grid"><div class="card"><h3>😴 Sleep</h3><div id="sleepSummary" class="muted">No entries yet.</div></div>
+<div class="card"><h3>🏃 Movement</h3><div id="moveSummary" class="muted">No entries yet.</div></div>
+<div class="card"><h3>🍽️ Food & hydration</h3><p class="muted">Use the Food area for meals and grocery planning.</p><button class="secondary" onclick="show('food')">Open food</button></div></div>
+<div class="note">This section is a personal tracking tool, not a diagnostic tool. Use your doctor/clinician for medical decisions.</div>
+</section>
+
+<section id="health" class="view">
+<h2>🩺 Doctors & Health</h2>
+<div class="card"><h3>Add an appointment</h3><div class="form"><input id="docName" placeholder="Doctor / specialist"><input id="docDate" type="date"><input id="docReason" placeholder="Reason / questions to bring"><button class="primary" onclick="addDoctor()">Save appointment</button></div></div>
+<div class="card"><h3>Upcoming / saved appointments</h3><div id="docs"></div></div>
+<div class="card"><h3>📝 Questions for my doctor</h3><div class="form"><textarea id="doctorQuestion" placeholder="Write a question you want to remember"></textarea><button class="secondary" onclick="saveNote('doctorQuestions','doctorQuestion')">Save question</button></div><div id="doctorNotes"></div></div>
+<div class="card"><h3>📋 Personal health notes</h3><p class="muted">Use this for information you want organized for appointments. Avoid passwords or financial account information.</p><textarea id="healthNotes" placeholder="Notes to discuss with your doctor"></textarea><button class="secondary" onclick="saveHealthNotes()">Save notes on this device</button></div>
+</section>
+
+<section id="food" class="view">
+<h2>🥕 Food & Kitchen</h2>
+<div class="grid"><div class="card"><h3>🍽️ Meal ideas</h3><textarea id="mealIdea" placeholder="Meals, recipes, foods to try..."></textarea><button class="secondary" onclick="saveList('mealIdeas','mealIdea')">Save</button></div>
+<div class="card"><h3>🛒 Grocery list</h3><textarea id="groceries" placeholder="Add groceries, pantry items or bulk items"></textarea><button class="secondary" onclick="saveHealthNotes('groceries','groceries')">Save</button></div></div>
+<div class="card"><h3>🍳 Cooking record</h3><div class="form"><input id="recipe" placeholder="Recipe / meal"><input id="cookDate" type="date"><textarea id="cookNotes" placeholder="What you made, what worked, changes for next time"></textarea><button class="primary" onclick="saveCooking()">Save cooking record</button></div><div id="cooking"></div></div>
+</section>
+
+<section id="garden" class="view">
+<h2>🌱 Garden</h2>
+<div class="card"><h3>What do I want to grow?</h3><div class="form"><input id="plant" placeholder="Plant / bulb / seed"><input id="plantDate" type="date"><textarea id="gardenNote" placeholder="Where, when, notes, care, harvest idea"></textarea><button class="primary" onclick="saveGarden()">Save garden item</button></div></div>
+<div class="card"><h3>Garden log</h3><div id="gardenLog"></div></div>
+</section>
+
+<section id="tasks" class="view">
+<h2>✅ Tasks</h2><div class="card"><div class="form"><input id="ti" placeholder="Add a task"><select id="area"><option>Home</option><option>School</option><option>Family</option><option>Business</option><option>Garden</option><option>Health</option></select><button class="primary" onclick="addTask('ti')">Add task</button></div></div>
+<div class="card" id="all"></div>
+</section>
+
+<section id="family" class="view">
+<h2>🏠 Family & Home</h2><div class="grid">
+<div class="card"><h3>👨‍👩‍👧‍👦 Family</h3><textarea id="familyNotes" placeholder="Chores, routines, important family notes"></textarea><button class="secondary" onclick="saveSimple('familyNotes')">Save</button></div>
+<div class="card"><h3>🔧 House</h3><textarea id="houseNotes" placeholder="Repairs, maintenance, projects"></textarea><button class="secondary" onclick="saveSimple('houseNotes')">Save</button></div>
+<div class="card"><h3>📅 Important dates</h3><textarea id="datesNotes" placeholder="Birthdays, school dates, appointments"></textarea><button class="secondary" onclick="saveSimple('datesNotes')">Save</button></div>
+</div></section>
+
+<section id="business" class="view">
+<h2>🧹 Kats Crystal Cleanings</h2><div class="grid">
+<div class="card"><h3>Clients</h3><textarea id="bizClients" placeholder="Client names + notes"></textarea><button class="secondary" onclick="saveSimple('bizClients')">Save</button></div>
+<div class="card"><h3>Jobs</h3><textarea id="bizJobs" placeholder="Upcoming jobs, dates, services"></textarea><button class="secondary" onclick="saveSimple('bizJobs')">Save</button></div>
+<div class="card"><h3>Supplies</h3><textarea id="bizSupplies" placeholder="Cleaning supplies to buy"></textarea><button class="secondary" onclick="saveSimple('bizSupplies')">Save</button></div>
+<div class="card"><h3>Quotes / invoices</h3><textarea id="bizMoney" placeholder="Quote or invoice notes"></textarea><button class="secondary" onclick="saveSimple('bizMoney')">Save</button></div>
+</div></section>
+
+<section id="money" class="view">
+<h2>💰 Money</h2><div class="card"><h3>Money notes</h3><p class="muted">Keep this simple for now; we can turn it into a full budget later.</p><textarea id="moneyNotes" placeholder="Bills, savings goals, income notes, upcoming expenses"></textarea><button class="primary" onclick="saveSimple('moneyNotes')">Save</button></div></section>
+
+<section id="lists" class="view">
+<h2>📋 Lists & Notes</h2><div class="card"><h3>Make your own list</h3><div class="form"><input id="listTitle" placeholder="List name"><textarea id="listBody" placeholder="Write anything you want to remember"></textarea><button class="primary" onclick="saveCustomList()">Save list</button></div></div><div id="customLists"></div></section>
+</main>
+<footer>Kat's Home Base • Version 0.3 • Your data is stored locally in this browser</footer>
+
 <script>
-const C=[["English","📖","Literature, reading, writing and assignments"],["Chemistry","🧪","11th-grade chemistry with structured units"],["Social Studies","🌎","10-unit history/social studies program"],["Math","➗","Math using the chosen GED-focused materials"],["Art","🎨","Fun, creative 10-unit art course"],["Music","🎵","10-unit music appreciation and exploration"],["PE","🏃","Fitness, Pilates, yoga, recreation and wellness"],["Biblical Studies","✝️","Bible study, reading and reflection"],["Career / Welding","🛠️","Career exploration and welding pathway preparation"]];
-const K="kats-home-base-tasks";let T=JSON.parse(localStorage.getItem(K)||"[]");
-function save(){localStorage.setItem(K,JSON.stringify(T));render()}function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function row(t){return `<div class="task"><input type="checkbox" ${t.done?"checked":""} onchange="tog(${t.id})"><div style="flex:1" class="${t.done?"done":""}">${esc(t.title)}<div class="muted">${t.area}</div></div><button onclick="del(${t.id})">×</button></div>`}
-function render(){count.textContent=T.filter(x=>!x.done).length;today.innerHTML=T.slice(0,6).map(row).join("")||'<p class="muted">Nothing here yet.</p>';all.innerHTML=T.map(row).join("")||'<p class="muted">No tasks yet.</p>'}
-function add(id="q"){let e=document.getElementById(id),v=e.value.trim();if(!v)return;T.unshift({id:Date.now(),title:v,area:document.getElementById("area")?.value||"Home",done:false});e.value="";save()}function tog(id){let t=T.find(x=>x.id===id);if(t)t.done=!t.done;save()}function del(id){T=T.filter(x=>x.id!==id);save()}
+const COURSES = [{"name": "English", "icon": "📖", "rhythm": "4 focus days / 2 weeks", "desc": "Fences • literary analysis • writing • portfolio", "units": ["Introduction to Reading Plays", "Fences: Entering the Play", "Family, Dreams & Responsibility", "Fences: Act 1 Analysis", "Fences: Act 2", "Ending, Consequences & Themes", "Literary Analysis Essay", "Portfolio & Deeper Analysis", "Independent Application", "Final Course Project"]}, {"name": "Chemistry", "icon": "🧪", "rhythm": "4 focus days / 2 weeks", "desc": "Digital-first 11th-grade chemistry", "units": ["Chemistry Foundations & Matter", "The Periodic Table", "Inside the Atom", "Electrons & Valence Electrons", "Periodic Trends", "Chemical Bonding", "Chemical Formulas & Naming", "Chemical Reactions & Balancing", "The Mole & Introductory Stoichiometry", "Acids, Bases, pH & Everyday Chemistry"]}, {"name": "Social Studies", "icon": "🌎", "rhythm": "4 focus days / 2 weeks", "desc": "World History Foundations • OER-based", "units": ["Origins of History", "Early Humans", "Early Agrarian Societies", "Empires & Belief Systems", "Regional Webs", "The First Global Age", "The Long Nineteenth Century", "Global Conflict", "Globalization: 1900 to the Future", "World History Capstone — Think Like a Historian"]}, {"name": "Math", "icon": "➗", "rhythm": "4 focus days / 2 weeks", "desc": "Practical math • statistics • GED readiness", "units": ["Math Foundations, Algebra & Equations", "Ratios, Rates, Proportions & Percent", "Statistics Foundations — Data, Samples & Center", "Graphs, Distributions & Data Displays", "Scatterplots, Correlation & Relationships", "Probability & Chance", "Statistical Literacy, Bias & Claims", "Financial Math & Geometry for Real Life", "GED Math Readiness & Applied Problem Solving", "Statistics Project & Final Demonstration"]}, {"name": "Art", "icon": "🎨", "rhythm": "2 focus days / 2 weeks", "desc": "Art & Visual Design • fun-first enrichment", "units": ["Seeing Like an Artist: Observation, Line & Proportion", "Natural Forms: Shape, Texture & Pattern", "Color, Mood & Meaning", "Light, Shadow & Illusion", "Painting, Surface & Mixed Media", "Art History Through Making: Modern & Contemporary Art", "Botanical Illustration & Nature Art", "Photography, Composition & the Art of Seeing", "Personal Style, Symbol & Visual Voice", "Final Portfolio & Artist Identity"]}, {"name": "Music", "icon": "🎵", "rhythm": "2 focus days / 2 weeks", "desc": "Music appreciation & creative music", "units": ["Listen Like a Musician", "Instruments & Sound", "Melody, Mood & Musical Storytelling", "The Roots of American Music", "Jazz, Improvisation & Listening Together", "Rock, Pop & the Recording Revolution", "Songwriting: Words, Melody & Meaning", "Music Around the World", "Music, Technology & the Modern Listener", "Your Music, Your Voice"]}, {"name": "PE", "icon": "🏃", "rhythm": "2 focus days / 2 weeks", "desc": "Movement • wellness • safe fitness", "units": ["Fitness Foundations & Baseline", "Cardio & Heart Health", "Strength & Functional Fitness", "Mobility, Flexibility & Balance", "Core Control & Stability", "Healthy Movement & Lifestyle", "Mindfulness & Body Awareness", "Build Your Personal Fitness Program", "Recreation, Coordination & Lifetime Activity", "Personal Fitness & Final Demonstration"]}, {"name": "Biblical Studies", "icon": "✝️", "rhythm": "2 focus days / 2 weeks", "desc": "The Chosen • Bible study • personal working Bible", "units": ["This Is MY Bible", "Jesus Calls People", "Jesus Begins His Ministry", "Jesus and the People Around Him", "Questions, Faith & Following Jesus", "Jesus Teaches & Heals", "Jesus, Disciples & Community", "Jesus, Identity & Mission", "Season 1 Connections & Personal Study", "Season 1 Recap & Reflection"]}, {"name": "Career / Welding", "icon": "🛠️", "rhythm": "2 focus days / 2 weeks", "desc": "Career exploration • employment • CSM/welding pathway", "units": ["Career Direction & Work Interests", "Career Research & Fit", "Workplace Skills & Safety", "Resume & Application Basics", "Interview & Professional Communication", "Training Pathways & Costs", "Welding Pathway Research", "CSM / Program Readiness", "Work-School-Money Planning", "January Readiness & Next Steps"]}];
+const TRIPS = [["Oct 10", "Calvert Marine Museum", "English • Art • Music • PE", "Observation, soundscape, visual details, walking/movement"], ["Oct 21", "Chesapeake Beach Railway Museum", "Art • Music • PE", "Pattern, sound/rhythm, place, functional movement"], ["Nov 4", "Jefferson Patterson Park & Museum", "English • Art • Music • PE", "Storytelling, history/place, mood, outdoor movement"], ["Nov 18", "Bayside History Museum", "Social Studies • Art • Music • PE", "History, community, visual evidence, enjoyable movement"], ["Nov 25", "Thanksgiving Learning Day", "Social Studies • Music • PE • Food/Life Skills", "Tradition, community, rhythm, cooking and everyday movement"], ["Dec 9", "U.S. Botanic Garden", "Art • Music • PE", "Natural forms, patterns, texture, mindful movement"], ["Dec 23", "Annmarie Sculpture Garden & Arts Center", "Art • Music • PE", "Contemporary art, materials, pacing, movement"], ["Jan 6", "National Gallery of Art", "Art • English • Music", "Visual storytelling, composition, interpretation"], ["Jan 27", "Maryland Science Center", "Chemistry • Music • PE", "Science, sound, perception, movement"], ["Feb 3", "Museum of Illusions", "Art • Music • PE", "Optical illusion, perception, sensory experience"]];
+const K = {
+ tasks:"khb3_tasks", wellness:"khb3_wellness", doctors:"khb3_doctors", doctorQuestions:"khb3_doctor_questions",
+ healthNotes:"khb3_health_notes", cooking:"khb3_cooking", garden:"khb3_garden", custom:"khb3_custom"
+};
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)) ?? d}catch(e){return d}};
+const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let T=get(K.tasks,[]), W=get(K.wellness,[]), D=get(K.doctors,[]), Q=get(K.doctorQuestions,[]), Cooks=get(K.cooking,[]), Garden=get(K.garden,[]), Custom=get(K.custom,[]);
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function show(id){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x.dataset.v===id));scrollTo(0,0)}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>show(b.dataset.v));
-function courses(){coursesEl.innerHTML=C.map((c,i)=>`<div class="card course" onclick="openC(${i})"><h3>${c[1]} ${c[0]}</h3><span class="badge">10 UNITS</span><p class="muted">${c[2]}</p></div>`).join("")}
-function openC(i){let c=C[i],core=["English","Chemistry","Social Studies","Math"].includes(c[0]);schoolHome.style.display="none";let d=detail;d.style.display="block";let u=Array.from({length:10},(_,n)=>`<div class="unit"><div class="row"><b>Unit ${n+1}</b><span class="badge">10% of course</span></div><div class="focus"><b>Focus-day rhythm:</b> ${core?"4 focus days in each 2-week period":"2 focus days in each 2-week period"}<br><span class="muted">Exact reading/watch/listen instructions, assignments, vocabulary, activities, resources and end-of-unit check will live here.</span></div></div>`).join("");d.innerHTML=`<button class="back" onclick="back()">← Back to courses</button><div class="card"><h2>${c[1]} ${c[0]}</h2><p class="muted">${c[2]}</p></div><div class="card"><h3>10-Unit Course Map</h3>${u}</div><div class="card adult"><h3>👩‍🏫 Adult Notes</h3><p class="muted">Parent-facing planning, grading, documentation and progress notes stay separate from Presley's student view.</p></div>`}
-function back(){detail.style.display="none";schoolHome.style.display="block";scrollTo(0,0)}
-function adult(){schoolHome.style.display="none";detail.style.display="block";detail.innerHTML=`<button class="back" onclick="back()">← Back to courses</button><div class="card adult"><h2>👩‍🏫 Parent / Teacher Package</h2><p class="muted">Detailed adult planning and recordkeeping area.</p></div><div class="grid"><div class="card"><h3>📅 Weekly Planning</h3><p class="muted">Track the 2-week focus-day rhythm.</p></div><div class="card"><h3>📝 Unit Checks</h3><p class="muted">Record completion and notes.</p></div><div class="card"><h3>🚌 Field Trips</h3><p class="muted">Date, location, subject and learning log.</p></div><div class="card"><h3>📁 Portfolio</h3><p class="muted">Work samples, projects and progress notes.</p></div></div><div class="card"><h3>Course Map</h3>${C.map(c=>`<div class="task">${c[1]} ${c[0]} <span class="badge">10 units</span></div>`).join("")}</div>`}
-coursesEl=document.getElementById("courses");count=document.getElementById("count");today=document.getElementById("today");all=document.getElementById("all");schoolHome=document.getElementById("schoolHome");detail=document.getElementById("detail");courses();render();
+function taskRow(t){return `<div class="task"><input type="checkbox" ${t.done?"checked":""} onchange="toggleTask(${t.id})"><div style="flex:1" class="${t.done?"done":""}">${esc(t.title)}<div class="muted">${esc(t.area||"Home")}</div></div><button class="secondary" onclick="deleteTask(${t.id})">×</button></div>`}
+function renderTasks(){count.textContent=T.filter(x=>!x.done).length;today.innerHTML=T.slice(0,6).map(taskRow).join("")||'<p class="muted">Nothing here yet.</p>';all.innerHTML=T.map(taskRow).join("")||'<p class="muted">No tasks yet.</p>'}
+function addTask(id,area){let e=document.getElementById(id),v=e.value.trim();if(!v)return;let a=area||document.getElementById("area")?.value||"Home";T.unshift({id:Date.now(),title:v,area:a,done:false});e.value="";set(K.tasks,T);renderTasks()}
+function toggleTask(id){let t=T.find(x=>x.id===id);if(t)t.done=!t.done;set(K.tasks,T);renderTasks()}
+function deleteTask(id){T=T.filter(x=>x.id!==id);set(K.tasks,T);renderTasks()}
+function renderCourses(){courses.innerHTML=COURSES.map((c,i)=>`<div class="card course" onclick="openCourse(${i})"><h3>${c.icon} ${c.name}</h3><span class="badge">${c.rhythm}</span><p class="muted">${c.desc}</p><p class="small">${c.units.length} units</p></div>`).join("")}
+function openSchool(kind){schoolHome.style.display="none";schoolDetail.style.display="block";if(kind==="trips")renderTrips();else renderAdult()}
+function backSchool(){schoolDetail.style.display="none";schoolHome.style.display="block";scrollTo(0,0)}
+function openCourse(i){let c=COURSES[i];schoolHome.style.display="none";schoolDetail.style.display="block";
+schoolDetail.innerHTML=`<button class="modalback" onclick="backSchool()">← Back to courses</button>
+<div class="card"><h2>${c.icon} ${c.name}</h2><p class="muted">${c.desc}</p><span class="badge">${c.rhythm}</span></div>
+<div class="card"><h3>10-Unit Course Map</h3><p class="muted">Tap a unit to mark it complete on this device. The finalized course materials remain the source of truth for detailed lesson instructions and resources.</p>
+${c.units.map((u,n)=>`<div class="unit"><div class="row"><b>Unit ${n+1}</b><span class="badge">${localStorage.getItem("khb3_${i}_${n}")==="done"?"✓ Complete":"Not started"}</span></div><h3>${u}</h3><div class="focus"><b>Focus rhythm:</b> ${c.rhythm}<br><span class="muted">Use the finalized student guide for the exact lesson/resource assignment. Save evidence to Presley's binder/portfolio.</span></div><button class="secondary" onclick="markUnit(${i},${n})">Toggle complete</button></div>`).join("")}</div>
+<div class="card"><h3>📁 Portfolio</h3><div class="check"><input type="checkbox"> Strongest work saved</div><div class="check"><input type="checkbox"> Reflection/evidence saved</div><div class="check"><input type="checkbox"> Unit check completed</div></div>`}
+function markUnit(i,n){let k=`khb3_${i}_${n}`;if(localStorage.getItem(k)==="done")localStorage.removeItem(k);else localStorage.setItem(k,"done");openCourse(i)}
+function renderTrips(){schoolDetail.innerHTML=`<button class="modalback" onclick="backSchool()">← Back to school</button><div class="card"><h2>🚌 Field-Trip Reference</h2><p class="muted">Academic connections are recorded so field trips can count as documented learning rather than simply outings.</p></div>${TRIPS.map(t=>`<div class="card"><div class="row"><h3>${t[0]} — ${t[1]}</h3><span class="badge">FIELD TRIP</span></div><p><b>Courses:</b> ${t[2]}</p><p class="muted"><b>Connection:</b> ${t[3]}</p><div class="form"><textarea id="trip_${t[0].replace(/\\W/g,'')}" placeholder="Presley's observations / assignment evidence"></textarea></div></div>`).join("")}`}
+function renderAdult(){schoolDetail.innerHTML=`<button class="modalback" onclick="backSchool()">← Back to school</button><div class="card"><h2>👩‍🏫 Parent / Teacher Package</h2><p class="muted">Adult-facing tracking stays separate from Presley's student course view.</p></div><div class="grid">
+<div class="card"><h3>📅 2-Week Planning</h3><p class="muted">Core: 4 focus days. Light: 2 focus days.</p></div>
+<div class="card"><h3>📝 Unit Checks</h3><p class="muted">Record complete / revise / reteach and save notes.</p></div>
+<div class="card"><h3>🚌 Field Trips</h3><p class="muted">Use the reference sheet to connect trips to units.</p></div>
+<div class="card"><h3>📁 Portfolio</h3><p class="muted">Keep representative work, reflections, projects and documentation.</p></div>
+</div><div class="card"><h3>Every 4 Weeks</h3><p class="muted">Use a 5-question check-in or a short character paragraph, as planned for Biblical Studies and the broader homeschool record.</p></div>`}
+function saveWellness(){let x={date:new Date().toISOString().slice(0,10),sleep:sleep.value,workout:workout.value,energy:energy.value,note:wellnote.value};W.unshift(x);set(K.wellness,W);sleep.value=workout.value=energy.value=wellnote.value="";renderWellness()}
+function renderWellness(){let x=W[0];if(!x){sleepSummary.textContent=moveSummary.textContent="No entries yet.";wellnessStatus.textContent="—";return}sleepSummary.textContent=`Last: ${x.sleep||"—"} hours`;moveSummary.textContent=x.workout||"No movement logged";wellnessStatus.textContent=x.energy?x.energy+"/10":"Logged"}
+function addDoctor(){let n=docName.value.trim();if(!n)return;D.unshift({id:Date.now(),name:n,date:docDate.value,reason:docReason.value});set(K.doctors,D);docName.value=docDate.value=docReason.value="";renderDoctors()}
+function renderDoctors(){docs.innerHTML=D.map(x=>`<div class="task"><div style="flex:1"><b>${esc(x.name)}</b><div class="muted">${esc(x.date||"No date")} • ${esc(x.reason||"No note")}</div></div></div>`).join("")||'<p class="muted">No appointments saved.</p>';doctorNotes.innerHTML=Q.map(x=>`<div class="note">${esc(x)}</div>`).join("")}
+function saveNote(k,id){let v=document.getElementById(id).value.trim();if(!v)return;Q.unshift(v);set(K.doctorQuestions,Q);document.getElementById(id).value="";renderDoctors()}
+function saveHealthNotes(){localStorage.setItem("khb3_"+(arguments[0]||"healthNotes"),document.getElementById(arguments[1]||"healthNotes").value);if(arguments.length===0)alert("Saved on this device.");}
+function saveList(k,id){localStorage.setItem("khb3_"+k,document.getElementById(id).value);alert("Saved on this device.")}
+function saveCooking(){let x={recipe:recipe.value,date:cookDate.value,note:cookNotes.value};Cooks.unshift(x);set(K.cooking,Cooks);recipe.value=cookDate.value=cookNotes.value="";renderCooking()}
+function renderCooking(){cooking.innerHTML=Cooks.map(x=>`<div class="task"><div><b>${esc(x.recipe)}</b><div class="muted">${esc(x.date||"")} • ${esc(x.note||"")}</div></div></div>`).join("")||'<p class="muted">No cooking records yet.</p>'}
+function saveGarden(){let x={plant:plant.value,date:plantDate.value,note:gardenNote.value};Garden.unshift(x);set(K.garden,Garden);plant.value=plantDate.value=gardenNote.value="";renderGarden()}
+function renderGarden(){gardenLog.innerHTML=Garden.map(x=>`<div class="task"><div><b>${esc(x.plant)}</b><div class="muted">${esc(x.date||"")} • ${esc(x.note||"")}</div></div></div>`).join("")||'<p class="muted">No garden entries yet.</p>'}
+function saveSimple(id){localStorage.setItem("khb3_"+id,document.getElementById(id).value);alert("Saved on this device.")}
+function saveCustomList(){let t=listTitle.value.trim(),b=listBody.value.trim();if(!t&&!b)return;Custom.unshift({t,b});set(K.custom,Custom);listTitle.value=listBody.value="";renderCustom()}
+function renderCustom(){customLists.innerHTML=Custom.map(x=>`<div class="card"><h3>${esc(x.t)}</h3><p>${esc(x.b).replace(/\\n/g,"<br>")}</p></div>`).join("")}
+function loadSimple(){["healthNotes","familyNotes","houseNotes","datesNotes","bizClients","bizJobs","bizSupplies","bizMoney","moneyNotes"].forEach(id=>{let v=localStorage.getItem("khb3_"+id);if(v)document.getElementById(id).value=v});let g=localStorage.getItem("khb3_groceries");if(g)groceries.value=g;let m=localStorage.getItem("khb3_mealIdeas");if(m)mealIdea.value=m}
+renderTasks();renderCourses();renderWellness();renderDoctors();renderCooking();renderGarden();renderCustom();loadSimple();
 </script></body></html>
